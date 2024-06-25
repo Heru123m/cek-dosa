@@ -1,0 +1,152 @@
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cek Dosa</title>
+  <link rel="icon" href="ds.jpg" title="" type="image/jpg" />
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <meta name="description" content="Cek seberapa banyak dosa mu,                                                                               Note: Ini hanya tebak tebakan! bukan nyata dari dosa mu"/>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    @keyframes a1 {
+      0% {transform: scale(1.0);}
+      50% {transform: scale(0.9); opacity: 0.5;}
+      100% {transform: scale(1.0);}
+    }
+    body {
+      background-color: black;
+      color: white;
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+    .isi {
+      margin-top: 50%;
+      background-color: #4a4a4a;
+      width: 85%;
+      border-radius: 25px;
+      padding: 5px;
+      height: 200px;
+    }
+    #hasil {
+      min-height: 200px;
+      max-height: 1000px;
+      display: none;
+      position: relative;
+      top: 200px;
+      background-color: #4a4a4a;
+      width: 85%;
+      border-radius: 25px;
+      padding: 5px;
+    }
+    .judul {
+      background: linear-gradient(to right, #0069d6,#3effb4);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    #hn {
+      background: linear-gradient(to right, #0069d6,#3effb4);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    #nama {
+      margin-top: 7px;
+      padding: 5px;
+      border-radius: 10px;
+      border: 1px solid black;
+      outline: none;
+      transition: .2s ease;
+      width: 180px;
+    }
+    #nama:focus {
+      border: 2px solid #08bdff;
+      width: 220px;
+    }
+    #submit {
+      margin-top: 40px;
+      padding: 7px;
+      width: 170px;
+      border-radius: 15px;
+      border: none;
+      background: linear-gradient(to right, #0fffae,#0074ed);
+      font-weight: bold;
+      transition: .1s ease;
+    }
+    #submit:active {
+      transform: scale(0.9);
+      width: 200px;
+    }
+    #lod {
+      display: none;
+      position: relative;
+      margin-top: 70%;
+    }
+    #ds {
+      color: red;
+    }
+    #load {
+      border-radius: 40px;
+    }
+    .tlo {
+      margin-top: 20px;
+      margin-left: 10px;
+      animation: a1 1s infinite;
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <div class="isi" id="isi">
+      <h1 class="judul">Cek Dosa</h1>
+      <br>
+      <label for="nama">Masukkan nama kamu:</label>
+      <input type="text" name="nama" id="nama" placeholder="Nama kamu"/>
+      <br>
+      <button id="submit" onclick="sb()">Submit</button>
+    </div>
+    <div id="lod">
+      <img id="load" src="loading.gif" width="50px"/>
+      <h2 class="tlo">Loading......</h2>
+    </div>
+    <div id="hasil">
+      <h2 id="hn"></h2>
+      <h2>Kamu memiliki</h2>
+      <h2 id="ds"></h2>
+      <h2>DOSA!!, segera taubat sebelum nyawamu di cabut</h2>
+      <button id="submit" onclick="ul()">Cek ulang</button>
+    </div>
+  </center>
+  <script>
+    function sb() {
+      var isi = document.getElementById("isi");
+      var hasil = document.getElementById("hasil");
+      var load = document.getElementById("lod");
+      var nama = document.getElementById("nama").value;
+      var hn = document.getElementById("hn");
+      hn.innerHTML = nama;
+      var dosa = Math.floor(Math.random() * 10000) + 500;
+      document.getElementById("ds").innerHTML = dosa;
+      isi.style.display = "none";
+      load.style.display = "block";
+      setTimeout (function() {
+        load.style.display = "none";
+        hasil.style.display = "block";
+      }, 2000);
+    }
+    function ul() {
+      var isi = document.getElementById("isi");
+      var hasil = document.getElementById("hasil");
+      var load = document.getElementById("lod");
+      var nama = document.getElementById("nama").value;
+      var hn = document.getElementById("hn");
+      hasil.style.display = "none";
+      isi.style.display = "block";
+    }
+  </script>
+</body>
+</html>
